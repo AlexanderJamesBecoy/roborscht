@@ -3,21 +3,18 @@
      Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot name="finger">
-  <link
-    name="base_link">
+  <link name="base_link">
     <inertial>
       <origin
-        xyz="-9.648E-10 -0.018208 0.0046469"
-        rpy="0 0 0" />
-      <mass
-        value="0.011452" />
+        xyz="-0.00168969091187882 0.0278893702990069 0.0386697200522784" rpy="0 0 0" />
+      <mass value="0.0119128649201374" />
       <inertia
-        ixx="1.7752E-06"
-        ixy="1.116E-13"
-        ixz="2.707E-14"
-        iyy="1.454E-06"
-        iyz="5.23E-08"
-        izz="6.3317E-07" />
+        ixx="1.77903316958506E-06"
+        ixy="2.73784518026717E-10"
+        ixz="-7.4497368924376E-14"
+        iyy="6.42440261427198E-07"
+        iyz="5.2301061822394E-08"
+        izz="1.46496018768648E-06" />
     </inertial>
     <visual>
       <origin
@@ -29,8 +26,7 @@
       </geometry>
       <material
         name="">
-        <color
-          rgba="0.62745 0.62745 0.62745 1" />
+        <color rgba="0.8 0.8 0.8 1"/>
       </material>
     </visual>
     <collision>
@@ -47,17 +43,17 @@
     name="metacarpal_link">
     <inertial>
       <origin
-        xyz="-0.00014503 -0.0087142 -0.006323"
+        xyz="2.55503054425767E-06 -0.0200961384807429 -0.00266508797552342"
         rpy="0 0 0" />
       <mass
-        value="0.0058359" />
+        value="0.00537510095982113" />
       <inertia
-        ixx="2.5686E-07"
-        ixy="2.3547E-11"
-        ixz="-1.8766E-10"
-        iyy="2.1677E-07"
-        iyz="2.2052E-08"
-        izz="1.1748E-07" />
+        ixx="2.53059695492456E-07"
+        ixy="1.87666699410734E-10"
+        ixz="2.35484866530141E-11"
+        iyy="1.08190456615305E-07"
+        iyz="-2.20514612979224E-08"
+        izz="2.05816365327712E-07" />
     </inertial>
     <visual>
       <origin
@@ -69,8 +65,7 @@
       </geometry>
       <material
         name="">
-        <color
-          rgba="0.25098 0.25098 0.25098 1" />
+        <color rgba="0.8 0.8 0.8 1"/>
       </material>
     </visual>
     <collision>
@@ -87,17 +82,15 @@
     name="metacarpal_joint"
     type="revolute">
     <origin
-      xyz="-0.0010929 0.001 0.057418"
-      rpy="0 -0.049938 0" />
-    <parent
-      link="base_link" />
-    <child
-      link="metacarpal_link" />
+      xyz="-0.0016899 -0.051494 0.059041"
+      rpy="-1.5708 -0.049938 3.1416" />
+    <parent link="base_link" />
+    <child link="metacarpal_link" />
     <axis
-      xyz="0 1 0" />
+      xyz="0 0 1" />
     <limit
-      lower="0"
-      upper="0.523"
+      lower="-0.2618"
+      upper="0.2618"
       effort="0"
       velocity="0" />
   </joint>
@@ -105,17 +98,17 @@
     name="proximal_link">
     <inertial>
       <origin
-        xyz="-6.5591E-06 -0.0091788 0.0011633"
+        xyz="0.0181492181193309 -0.00455519901217467 -6.55906348605729E-06"
         rpy="0 0 0" />
       <mass
-        value="0.0045745" />
+        value="0.00457448104418533" />
       <inertia
-        ixx="1.8349E-07"
-        ixy="1.1157E-11"
-        ixz="-2.4084E-10"
-        iyy="1.2849E-07"
-        iyz="3.0111E-09"
-        izz="8.9129E-08" />
+        ixx="8.91294749858896E-08"
+        ixy="-3.0111460101639E-09"
+        ixz="-2.40839829626287E-10"
+        iyy="1.28490345109158E-07"
+        iyz="-1.11567188486128E-11"
+        izz="1.8348738040492E-07" />
     </inertial>
     <visual>
       <origin
@@ -127,8 +120,7 @@
       </geometry>
       <material
         name="">
-        <color
-          rgba="0.25098 0.25098 0.25098 1" />
+        <color rgba="0.8 0.8 0.8 1" />
       </material>
     </visual>
     <collision>
@@ -145,17 +137,17 @@
     name="proximal_joint"
     type="revolute">
     <origin
-      xyz="0 -0.0015038 0.034991"
-      rpy="0.085673 0 0" />
+      xyz="0 -0.038786 -0.007734"
+      rpy="-1.5708 0.085673 -1.5708" />
     <parent
       link="metacarpal_link" />
     <child
       link="proximal_link" />
     <axis
-      xyz="1 0 0" />
+      xyz="0 0 1" />
     <limit
-      lower="0"
-      upper="0.523"
+      lower="-1.309"
+      upper="0"
       effort="0"
       velocity="0" />
   </joint>
@@ -163,17 +155,17 @@
     name="middle_link">
     <inertial>
       <origin
-        xyz="-6.8403E-06 -0.0092592 0.0011813"
+        xyz="0.0177672178272411 -0.004474805346593 -6.84025959544771E-06"
         rpy="0 0 0" />
       <mass
-        value="0.0043864" />
+        value="0.00438641275668905" />
       <inertia
-        ixx="1.6986E-07"
-        ixy="1.1104E-11"
-        ixz="-2.3078E-10"
-        iyy="1.1745E-07"
-        iyz="3.0122E-09"
-        izz="8.4651E-08" />
+        ixx="8.46514986449752E-08"
+        ixy="-3.01219917101257E-09"
+        ixz="-2.30777500003745E-10"
+        iyy="1.17446243228216E-07"
+        iyz="-1.1103682095074E-11"
+        izz="1.69859402394516E-07" />
     </inertial>
     <visual>
       <origin
@@ -185,8 +177,7 @@
       </geometry>
       <material
         name="">
-        <color
-          rgba="0.79216 0.81961 0.93333 1" />
+        <color rgba="0.8 0.8 0.8 1"/>
       </material>
     </visual>
     <collision>
@@ -203,17 +194,17 @@
     name="middle_joint"
     type="revolute">
     <origin
-      xyz="0 0.00018799 0.033414"
-      rpy="-0.011388 0 0" />
+      xyz="0.033972 0 0"
+      rpy="0 0 -0.011388" />
     <parent
       link="proximal_link" />
     <child
       link="middle_link" />
     <axis
-      xyz="1 0 0" />
+      xyz="0 0 1" />
     <limit
-      lower="0"
-      upper="0.523"
+      lower="-1.309"
+      upper="0"
       effort="0"
       velocity="0" />
   </joint>
@@ -221,17 +212,17 @@
     name="distal_link">
     <inertial>
       <origin
-        xyz="0.00011934 -0.0084691 -0.0026066"
+        xyz="-0.0141234378639758 -0.00526492449893716 -0.000119344366734854"
         rpy="0 0 0" />
       <mass
-        value="0.0032456" />
+        value="0.00324558485631147" />
       <inertia
-        ixx="1.1027E-07"
-        ixy="-7.7395E-10"
-        ixz="3.872E-10"
-        iyy="7.0005E-08"
-        iyz="-7.4783E-09"
-        izz="6.6242E-08" />
+        ixx="6.62419109034208E-08"
+        ixy="-7.47834711523089E-09"
+        ixz="3.87195824060538E-10"
+        iyy="7.00049063251166E-08"
+        iyz="-7.73951192286721E-10"
+        izz="1.10271023940816E-07" />
     </inertial>
     <visual>
       <origin
@@ -243,8 +234,7 @@
       </geometry>
       <material
         name="">
-        <color
-          rgba="0.79216 0.81961 0.93333 1" />
+        <color rgba="0.8 0.8 0.8 1"/>
       </material>
     </visual>
     <collision>
@@ -261,17 +251,17 @@
     name="distal_joint"
     type="revolute">
     <origin
-      xyz="0 0.0010283 0.032416"
-      rpy="-0.063144 0 0" />
+      xyz="0.033172 0 0"
+      rpy="-3.1416 0 3.0784" />
     <parent
       link="middle_link" />
     <child
       link="distal_link" />
     <axis
-      xyz="1 0 0" />
+      xyz="0 0 -1" />
     <limit
-      lower="0"
-      upper="0.523"
+      lower="-1.309"
+      upper="0"
       effort="0"
       velocity="0" />
   </joint>

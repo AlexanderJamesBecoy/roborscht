@@ -24,12 +24,12 @@ def generate_launch_description():
             }],
             arguments=[urdf_file]
         ),
-        Node(
-            package='joint_state_publisher',
-            executable='joint_state_publisher',
-            name='joint_state_publisher',
-            output='screen'
-        ),
+        # Node(
+        #     package='joint_state_publisher',
+        #     executable='joint_state_publisher',
+        #     name='joint_state_publisher',
+        #     output='screen'
+        # ),
         Node(
             package='joint_state_publisher_gui',
             executable='joint_state_publisher_gui',
@@ -43,11 +43,11 @@ def generate_launch_description():
             output='screen',
             arguments=['-d', os.path.join(roborscht_description_dir, 'rviz', 'roborscht.rviz')]
         ),
-        # Node(
-        #     package='tf2_ros',
-        #     executable='static_transform_publisher',
-        #     name='static_transform_publisher',
-        #     output='screen',
-        #     arguments=['0', '0', '0', '0', '0', '0', 'map', 'base_link']
-        # ),
+        Node(
+            package='tf2_ros',
+            executable='static_transform_publisher',
+            name='static_transform_publisher',
+            output='screen',
+            arguments=['0', '0', '0', '0', '0', '0', 'map', 'base_link']
+        ),
     ])
