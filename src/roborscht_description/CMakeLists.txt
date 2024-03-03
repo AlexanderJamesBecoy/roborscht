@@ -25,7 +25,6 @@ find_package(tf2_ros REQUIRED)
 install(DIRECTORY
   meshes
   urdf
-  textures
   launch
   rviz
   DESTINATION share/${PROJECT_NAME}

@@ -1,0 +1,1301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="roborscht_v1">
+  <link name="base_link">
+    <inertial>
+      <origin
+        xyz="0.19082 0.2446 0.36397"
+        rpy="0 0 0" />
+      <mass
+        value="1.6006" />
+      <inertia
+        ixx="0.0027065"
+        ixy="-1.4207E-06"
+        ixz="-1.8502E-05"
+        iyy="0.0027153"
+        iyz="-4.5228E-06"
+        izz="0.0025317" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="wrist_link">
+    <inertial>
+      <origin xyz="0.018305 -0.013109 -0.086448" rpy="0 0 0" />
+      <mass
+        value="0.11966" />
+      <inertia
+        ixx="4.4947E-05"
+        ixy="-9.08E-06"
+        ixz="3.6653E-06"
+        iyy="4.1917E-05"
+        iyz="2.668E-07"
+        izz="6.8158E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/wrist_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/wrist_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wrist_joint"
+    type="revolute">
+    <origin
+      xyz="0.12924 -0.17081 0.21193"
+      rpy="-2.1474 0.41016 1.317" />
+    <parent
+      link="base_link" />
+    <child
+      link="wrist_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.35"
+      upper="0.55"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="thumb_aa_link">
+    <inertial>
+      <origin
+        xyz="-0.00212660017077074 1.7079246905638E-09 0.0162362437939987"
+        rpy="0 0 0" />
+      <mass
+        value="0.00898644503420836" />
+      <inertia
+        ixx="3.35433913138657E-07"
+        ixy="-1.69313470342621E-13"
+        ixz="-6.94103606730084E-08"
+        iyy="5.19122859673337E-07"
+        iyz="-2.81811335710078E-17"
+        izz="3.85453778045213E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/thumb_aa_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/thumb_aa_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="thumb_aa_joint"
+    type="revolute">
+    <origin
+      xyz="-0.0056393 -0.025446 -0.045227"
+      rpy="-1.7505 -1.3806 -1.7419" />
+    <parent
+      link="wrist_link" />
+    <child
+      link="thumb_aa_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.3"
+      upper="1.0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link name="thumb_metacarpal_link">
+    <inertial>
+      <origin
+        xyz="-8.60721114019913E-05 -0.00971093698909487 0.00950106301461773"
+        rpy="0 0 0" />
+      <mass
+        value="0.0122468064217174" />
+      <inertia
+        ixx="2.77460428043579E-06"
+        ixy="3.45217423783368E-07"
+        ixz="8.70989574211703E-11"
+        iyy="2.75392415515937E-07"
+        iyz="-3.6631502566146E-10"
+        izz="2.92983215462873E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/thumb_metacarpal_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/thumb_metacarpal_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="thumb_metacarpal_joint"
+    type="revolute">
+    <origin
+      xyz="0.010656 -0.0095 0.045101"
+      rpy="1.5708 0.31307 -3.1416" />
+    <parent
+      link="thumb_aa_link" />
+    <child
+      link="thumb_metacarpal_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.3"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="thumb_proximal_link">
+    <inertial>
+      <origin
+        xyz="0.018149214818829 -0.00455519718647185 0.00799344247498654"
+        rpy="0 0 0" />
+      <mass
+        value="0.00457448200289434" />
+      <inertia
+        ixx="8.91295201558358E-08"
+        ixy="-3.01101643920931E-09"
+        ixz="-2.40835659192878E-10"
+        iyy="1.28490375435549E-07"
+        iyz="-1.11699068650879E-11"
+        izz="1.83487451253534E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/thumb_proximal_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/thumb_proximal_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="thumb_proximal_joint"
+    type="revolute">
+    <origin
+      xyz="-0.0089829 0.020526 0.0015"
+      rpy="0 0 1.706" />
+    <parent
+      link="thumb_metacarpal_link" />
+    <child
+      link="thumb_proximal_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.2"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <mimic
+      joint="thumb_metacarpal_joint"
+      multiplier="1"
+      offset="0" />
+  </joint>
+  <link
+    name="thumb_distal_link">
+    <inertial>
+      <origin
+        xyz="0.0141234269677802 -0.00526491643878635 0.00811935715786616"
+        rpy="0 0 0" />
+      <mass
+        value="0.00324557810719338" />
+      <inertia
+        ixx="6.62419379953252E-08"
+        ixy="7.47823317282738E-09"
+        ixz="3.87177440285619E-10"
+        iyy="7.00047283347757E-08"
+        iyz="7.73937952275295E-10"
+        izz="1.102707816134E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/thumb_distal_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/thumb_distal_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="thumb_distal_joint"
+    type="revolute">
+    <origin
+      xyz="0.033972 0 0"
+      rpy="0 0 0.21321" />
+    <parent
+      link="thumb_proximal_link" />
+    <child
+      link="thumb_distal_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.2"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <mimic
+      joint="thumb_proximal_joint"
+      multiplier="1"
+      offset="0" />
+  </joint>
+  <link
+    name="index_metacarpal_link">
+    <inertial>
+      <origin
+        xyz="2.55551413871902E-06 -0.0200961421256252 -0.00266508775681462"
+        rpy="0 0 0" />
+      <mass
+        value="0.00537510181030488" />
+      <inertia
+        ixx="2.53059726687794E-07"
+        ixy="1.87672034212162E-10"
+        ixz="2.35491908925758E-11"
+        iyy="1.08190444992497E-07"
+        iyz="-2.205146950838E-08"
+        izz="2.0581640988927E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/index_metacarpal_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/index_metacarpal_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="index_metacarpal_joint"
+    type="revolute">
+    <origin
+      xyz="0.030138 -0.062731 -0.088417"
+      rpy="0.0049057 0.13081 1.0012" />
+    <parent
+      link="wrist_link" />
+    <child
+      link="index_metacarpal_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.3"
+      upper="0.3"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="index_proximal_link">
+    <inertial>
+      <origin
+        xyz="0.00051935573801689 0.0566644154125854 -0.0362930706995756"
+        rpy="0 0 0" />
+      <mass
+        value="0.00457448190751612" />
+      <inertia
+        ixx="8.91294709194268E-08"
+        ixy="-3.01112035431887E-09"
+        ixz="-2.40840507284241E-10"
+        iyy="1.28490383116722E-07"
+        iyz="-1.11553357864659E-11"
+        izz="1.83487409642401E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/index_proximal_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/index_proximal_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="index_proximal_joint"
+    type="revolute">
+    <origin
+      xyz="0.036287 -0.056392 0.053492"
+      rpy="-1.5708 -0.00038125 -1.5708" />
+    <parent
+      link="index_metacarpal_link" />
+    <child
+      link="index_proximal_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.2"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="index_middle_link">
+    <inertial>
+      <origin
+        xyz="0.0177672195308634 -0.00447480480512841 0.007993160303187"
+        rpy="0 0 0" />
+      <mass
+        value="0.00438641361681086" />
+      <inertia
+        ixx="8.46514970616483E-08"
+        ixy="-3.0121684387915E-09"
+        ixz="-2.30777816852129E-10"
+        iyy="1.17446280140492E-07"
+        iyz="-1.11038589645318E-11"
+        izz="1.69859433490933E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/index_middle_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/index_middle_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="index_middle_joint"
+    type="revolute">
+    <origin
+      xyz="0.016342 0.06122 -0.044287"
+      rpy="0 0 -0.018131" />
+    <parent
+      link="index_proximal_link" />
+    <child
+      link="index_middle_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.2"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <mimic
+      joint="index_proximal_joint"
+      multiplier="1"
+      offset="0" />
+  </joint>
+  <link
+    name="index_distal_link">
+    <inertial>
+      <origin
+        xyz="0.00366251427721347 -3.08698911165584E-05 0.0038806389730299"
+        rpy="0 0 0" />
+      <mass
+        value="0.00324557995169206" />
+      <inertia
+        ixx="6.62420271486912E-08"
+        ixy="-7.47815444653509E-09"
+        ixz="3.87202186472348E-10"
+        iyy="7.00046561219008E-08"
+        iyz="-7.73824259369657E-10"
+        izz="1.10270705824311E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/index_distal_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/index_distal_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="index_distal_joint"
+    type="revolute">
+    <origin
+      xyz="0.048781 -0.010005 0.012"
+      rpy="3.1416 0 2.8578" />
+    <parent
+      link="index_middle_link" />
+    <child
+      link="index_distal_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.2"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <mimic
+      joint="index_middle_joint"
+      multiplier="1"
+      offset="0" />
+  </joint>
+  <link
+    name="middle_metacarpal_link">
+    <inertial>
+      <origin
+        xyz="-2.5556368423163E-06 -0.0200961422658983 -0.00233491248597001"
+        rpy="0 0 0" />
+      <mass
+        value="0.00537510192303987" />
+      <inertia
+        ixx="2.53059728799771E-07"
+        ixy="-1.87675445035106E-10"
+        ixz="2.35492265131773E-11"
+        iyy="1.08190441498981E-07"
+        iyz="2.20514744483979E-08"
+        izz="2.05816415107696E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/middle_metacarpal_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/middle_metacarpal_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="middle_metacarpal_joint"
+    type="revolute">
+    <origin
+      xyz="0.043051 -0.044144 -0.095435"
+      rpy="3.1406 -0.043621 -2.1547" />
+    <parent
+      link="wrist_link" />
+    <child
+      link="middle_metacarpal_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.3"
+      upper="0.3"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="middle_proximal_link">
+    <inertial>
+      <origin
+        xyz="0.0177672184777303 -0.00447480460554911 -0.00600683926820553"
+        rpy="0 0 0" />
+      <mass
+        value="0.00438641366401296" />
+      <inertia
+        ixx="8.46515025216562E-08"
+        ixy="-3.01214419488868E-09"
+        ixz="-2.30778007302227E-10"
+        iyy="1.17446281165202E-07"
+        iyz="-1.11068544415635E-11"
+        izz="1.69859439907684E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/middle_proximal_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/middle_proximal_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="middle_proximal_joint"
+    type="revolute">
+    <origin
+      xyz="-0.006 -0.038786 0.002734"
+      rpy="1.5708 0.054927 -1.5708" />
+    <parent
+      link="middle_metacarpal_link" />
+    <child
+      link="middle_proximal_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.2"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="middlle_middle_link">
+    <inertial>
+      <origin
+        xyz="0.0103632788799684 0.000678841691512277 0.00799344180940245"
+        rpy="0 0 0" />
+      <mass
+        value="0.00457448194268923" />
+      <inertia
+        ixx="8.91294756344512E-08"
+        ixy="-3.01109117758962E-09"
+        ixz="-2.40840520697483E-10"
+        iyy="1.28490383756608E-07"
+        iyz="-1.11587706512643E-11"
+        izz="1.83487415114074E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/middlle_middle_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/middlle_middle_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="middle_middle_joint"
+    type="revolute">
+    <origin
+      xyz="0.041033 -0.0051198 -0.014"
+      rpy="0 0 0.014603" />
+    <parent
+      link="middle_proximal_link" />
+    <child
+      link="middlle_middle_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.2"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <mimic
+      joint="middle_proximal_joint"
+      multiplier="1"
+      offset="0" />
+  </joint>
+  <link
+    name="middle_distal_link">
+    <inertial>
+      <origin
+        xyz="0.0141234268373494 -0.00526492133500917 0.00811935698880448"
+        rpy="0 0 0" />
+      <mass
+        value="0.00324557630671349" />
+      <inertia
+        ixx="6.62418685370018E-08"
+        ixy="7.47830978453938E-09"
+        ixz="3.87123761716254E-10"
+        iyy="7.00047995730817E-08"
+        iyz="7.73990973497753E-10"
+        izz="1.10270823893991E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/middle_distal_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/middle_distal_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="middle_distal_joint"
+    type="revolute">
+    <origin
+      xyz="0.026186 0.005234 0"
+      rpy="0 0 0.058953" />
+    <parent
+      link="middlle_middle_link" />
+    <child
+      link="middle_distal_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.2"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <mimic
+      joint="middle_middle_joint"
+      multiplier="1"
+      offset="0" />
+  </joint>
+  <link
+    name="ring_metacarpal_link">
+    <inertial>
+      <origin
+        xyz="2.5558155921368E-06 -0.0200961423741939 -0.00266508753084532"
+        rpy="0 0 0" />
+      <mass
+        value="0.00537510186116502" />
+      <inertia
+        ixx="2.53059726207321E-07"
+        ixy="1.87675208311563E-10"
+        ixz="2.35495080597828E-11"
+        iyy="1.08190440920274E-07"
+        iyz="-2.20514762328278E-08"
+        izz="2.05816411762273E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/ring_metacarpal_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/ring_metacarpal_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="ring_metacarpal_joint"
+    type="revolute">
+    <origin
+      xyz="0.056267 -0.025123 -0.090509"
+      rpy="-0.00090966 -0.043624 0.98443" />
+    <parent
+      link="wrist_link" />
+    <child
+      link="ring_metacarpal_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.3"
+      upper="0.3"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="ring_proximal_link">
+    <inertial>
+      <origin
+        xyz="0.00803672323441859 0.000678842085853726 0.00800655769929925"
+        rpy="0 0 0" />
+      <mass
+        value="0.00457448191785149" />
+      <inertia
+        ixx="8.91294904381879E-08"
+        ixy="3.01105018861525E-09"
+        ixz="-2.40839586648695E-10"
+        iyy="1.28490379310832E-07"
+        iyz="1.1165446913386E-11"
+        izz="1.83487425909758E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/ring_proximal_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/ring_proximal_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="ring_proximal_joint"
+    type="revolute">
+    <origin
+      xyz="0.008 -0.064154 0.00060481"
+      rpy="-1.5708 0.1203 1.5708" />
+    <parent
+      link="ring_metacarpal_link" />
+    <child
+      link="ring_proximal_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.2"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="ring_middle_link">
+    <inertial>
+      <origin
+        xyz="0.0177672179463802 -0.00447480439121201 0.00799316096311339"
+        rpy="0 0 0" />
+      <mass
+        value="0.00438641367738747" />
+      <inertia
+        ixx="8.46515085444338E-08"
+        ixy="-3.01213252400248E-09"
+        ixz="-2.30777643314591E-10"
+        iyy="1.17446281241568E-07"
+        iyz="-1.1108145173672E-11"
+        izz="1.69859446442338E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/ring_middle_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/ring_middle_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="ring_middle_joint"
+    type="revolute">
+    <origin
+      xyz="-0.0077859 0.005234 0.016"
+      rpy="-3.1416 0 3.0896" />
+    <parent
+      link="ring_proximal_link" />
+    <child
+      link="ring_middle_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.2"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <mimic
+      joint="ring_proximal_joint"
+      multiplier="1"
+      offset="0" />
+  </joint>
+  <link
+    name="ring_distal_link">
+    <inertial>
+      <origin
+        xyz="0.0141234206247906 -0.00526493842196291 0.00811939547333487"
+        rpy="0 0 0" />
+      <mass
+        value="0.00324556506715118" />
+      <inertia
+        ixx="6.62415646671574E-08"
+        ixy="7.47839889558974E-09"
+        ixz="3.86394831534546E-10"
+        iyy="7.00050969442095E-08"
+        iyz="7.74207975379917E-10"
+        izz="1.1027064954337E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/ring_distal_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/ring_distal_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="ring_distal_joint"
+    type="revolute">
+    <origin
+      xyz="0.033172 0 0"
+      rpy="0 0 0.54436" />
+    <parent
+      link="ring_middle_link" />
+    <child
+      link="ring_distal_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.2"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <mimic
+      joint="ring_middle_joint"
+      multiplier="1"
+      offset="0" />
+  </joint>
+  <link
+    name="little_metacarpal_link">
+    <inertial>
+      <origin
+        xyz="2.55532465909258E-06 -0.0200961401682641 -0.00266508804508281"
+        rpy="0 0 0" />
+      <mass
+        value="0.00537510162825412" />
+      <inertia
+        ixx="2.53059725524858E-07"
+        ixy="1.87671482756787E-10"
+        ixz="2.35472302327314E-11"
+        iyy="1.08190458239335E-07"
+        iyz="-2.20514676837419E-08"
+        izz="2.05816395059102E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/little_metacarpal_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/little_metacarpal_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="little_metacarpal_joint"
+    type="revolute">
+    <origin
+      xyz="0.06931 -0.0063499 -0.088509"
+      rpy="-0.015289 -0.13001 1.081" />
+    <parent
+      link="wrist_link" />
+    <child
+      link="little_metacarpal_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.3"
+      upper="0.3"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="little_proximal_link">
+    <inertial>
+      <origin
+        xyz="0.00803672036560909 0.000678841480621417 0.0080065585558472"
+        rpy="0 0 0" />
+      <mass
+        value="0.00457448154201389" />
+      <inertia
+        ixx="8.91294757401253E-08"
+        ixy="3.01113640792464E-09"
+        ixz="-2.40840583447907E-10"
+        iyy="1.28490369090038E-07"
+        iyz="1.11571512205911E-11"
+        izz="1.83487402645381E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/little_proximal_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/little_proximal_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="little_proximal_joint"
+    type="revolute">
+    <origin
+      xyz="0.008 -0.065305 -0.004601"
+      rpy="-1.5708 -0.079684 1.5708" />
+    <parent
+      link="little_metacarpal_link" />
+    <child
+      link="little_proximal_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.2"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="little_middle_link">
+    <inertial>
+      <origin
+        xyz="0.00761872298424608 0.000759234978640499 0.00800683976732608"
+        rpy="0 0 0" />
+      <mass
+        value="0.00438641311203207" />
+      <inertia
+        ixx="8.46514985613874E-08"
+        ixy="3.0121454054755E-09"
+        ixz="-2.30778156194955E-10"
+        iyy="1.17446259924008E-07"
+        iyz="1.11073165540781E-11"
+        izz="1.69859416605812E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/little_middle_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/little_middle_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="little_middle_joint"
+    type="revolute">
+    <origin
+      xyz="-0.032437 -0.0027769 0"
+      rpy="0 0 0.11088" />
+    <parent
+      link="little_proximal_link" />
+    <child
+      link="little_middle_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.2"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <mimic
+      joint="little_proximal_joint"
+      multiplier="1"
+      offset="0" />
+  </joint>
+  <link
+    name="little_distal_link">
+    <inertial>
+      <origin
+        xyz="0.00566252452102901 -3.08932309326382E-05 0.00788061552298523"
+        rpy="0 0 0" />
+      <mass
+        value="0.00324556614832305" />
+      <inertia
+        ixx="6.62416918173547E-08"
+        ixy="-7.47839575892777E-09"
+        ixz="3.86604631920826E-10"
+        iyy="7.0004950991728E-08"
+        iyz="-7.74198658738252E-10"
+        izz="1.10270607255224E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/little_distal_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://roborscht_description/meshes/roborscht_v1/little_distal_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="little_distal_joint"
+    type="revolute">
+    <origin
+      xyz="-0.028244 0.0058079 0"
+      rpy="0 0 -0.28665" />
+    <parent
+      link="little_middle_link" />
+    <child
+      link="little_distal_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.2"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <mimic
+      joint="little_middle_joint"
+      multiplier="1"
+      offset="0" />
+  </joint>
+</robot>

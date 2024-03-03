@@ -207,6 +207,7 @@
       upper="0"
       effort="0"
       velocity="0" />
+    <mimic joint="proximal_joint" multiplier="1" offset="0" />
   </joint>
   <link
     name="distal_link">
@@ -264,5 +265,6 @@
       upper="0"
       effort="0"
       velocity="0" />
+    <mimic joint="middle_joint" multiplier="1" offset="0" />
   </joint>
 </robot>

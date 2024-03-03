@@ -8,7 +8,7 @@ from launch.substitutions import LaunchConfiguration
 def generate_launch_description():
     simulation = LaunchConfiguration('simulation', default='true')
     roborscht_description_dir = get_package_share_directory('roborscht_description')
-    urdf_file = os.path.join(roborscht_description_dir, 'urdf', 'finger.urdf')
+    urdf_file = os.path.join(roborscht_description_dir, 'urdf', 'roborscht_v2.urdf')
     with open(urdf_file, 'r') as infp:
         robot_description = infp.read()
 
@@ -48,6 +48,6 @@ def generate_launch_description():
             executable='static_transform_publisher',
             name='static_transform_publisher',
             output='screen',
-            arguments=['0', '0', '0', '0', '0', '0', 'map', 'base_link']
+            arguments=['0.1', '-0.25', '0.5', '0', '0', '0', 'map', 'base_link']
         ),
     ])
