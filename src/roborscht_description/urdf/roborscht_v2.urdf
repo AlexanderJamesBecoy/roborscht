@@ -155,7 +155,7 @@
     <axis
       xyz="0 0 -1" />
     <limit
-      lower="-0.785"
+      lower="-1.309"
       upper="0.785"
       effort="0"
       velocity="0" />
@@ -213,7 +213,7 @@
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-0.698"
+      lower="-0.262"
       upper="0"
       effort="0"
       velocity="0" />
@@ -271,13 +271,13 @@
     <axis
       xyz="0.14587 0 0.9893" />
     <limit
-      lower="-0.698"
+      lower="-1.309"
       upper="0"
       effort="0"
       velocity="0" />
     <mimic
       joint="thumb_metacarpal_joint"
-      multiplier="1"
+      multiplier="5"
       offset="0" />
   </joint>
   <link
@@ -333,7 +333,7 @@
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-0.698"
+      lower="-1.309"
       upper="0"
       effort="0"
       velocity="0" />
@@ -453,7 +453,7 @@
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-0.698"
+      lower="-1.309"
       upper="0"
       effort="0"
       velocity="0" />
@@ -511,7 +511,7 @@
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-0.698"
+      lower="-1.309"
       upper="0"
       effort="0"
       velocity="0" />
@@ -573,7 +573,7 @@
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-0.698"
+      lower="-1.309"
       upper="0"
       effort="0"
       velocity="0" />
@@ -693,7 +693,7 @@
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-0.698"
+      lower="-1.309"
       upper="0"
       effort="0"
       velocity="0" />
@@ -751,7 +751,7 @@
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-0.698"
+      lower="-1.309"
       upper="0"
       effort="0"
       velocity="0" />
@@ -813,7 +813,7 @@
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-0.698"
+      lower="-1.309"
       upper="0"
       effort="0"
       velocity="0" />
@@ -933,7 +933,7 @@
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-0.698"
+      lower="-1.309"
       upper="0"
       effort="0"
       velocity="0" />
@@ -991,7 +991,7 @@
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-0.698"
+      lower="-1.309"
       upper="0"
       effort="0"
       velocity="0" />
@@ -1053,7 +1053,7 @@
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-0.698"
+      lower="-1.309"
       upper="0"
       effort="0"
       velocity="0" />
@@ -1173,7 +1173,7 @@
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-0.698"
+      lower="-1.309"
       upper="0"
       effort="0"
       velocity="0" />
@@ -1231,7 +1231,7 @@
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-0.698"
+      lower="-1.309"
       upper="0"
       effort="0"
       velocity="0" />
@@ -1293,7 +1293,7 @@
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-0.698"
+      lower="-1.309"
       upper="0"
       effort="0"
       velocity="0" />
