@@ -50,13 +50,13 @@ def generate_launch_description():
             }],
             arguments=[arm_urdf_file]
         ),
-        Node(
-            package='joint_state_publisher_gui',
-            executable='joint_state_publisher_gui',
-            name='joint_state_publisher_gui',
-            namespace='hand',
-            output='screen',
-        ),
+        # Node(
+        #     package='joint_state_publisher_gui',
+        #     executable='joint_state_publisher_gui',
+        #     name='joint_state_publisher_gui',
+        #     namespace='hand',
+        #     output='screen',
+        # ),
         Node(
             package='joint_state_publisher_gui',
             executable='joint_state_publisher_gui',
