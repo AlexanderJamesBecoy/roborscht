@@ -1,6 +1,8 @@
 import rclpy
 from rclpy.node import Node
 from rclpy.qos import QoSProfile
+
+from std_msgs.msg import Int32
 from geometry_msgs.msg import Quaternion
 from sensor_msgs.msg import JointState
 from tf2_ros import TransformBroadcaster, TransformStamped
@@ -13,8 +15,9 @@ class MockHandInterfaceNode(Node):
         super().__init__('mock_hand_interface_node')
         timer_rate = 100 # Hz
         self.qos_profile = QoSProfile(depth=10)
+        self.state_subscriber = self.create_subscription(Int32, 'hand/state', self.state_callback, self.qos_profile)
         self.joint_state_publisher = self.create_publisher(JointState, 'hand/joint_states', self.qos_profile)
-        self.timer = self.create_timer(0.1, self.timer_callback)
+        self.timer = self.create_timer(1/timer_rate, self.timer_callback)
         self.broadcaster = TransformBroadcaster(self, self.qos_profile)
         self.get_logger().info('MockHandInterface has been started')
 
@@ -30,6 +33,10 @@ class MockHandInterfaceNode(Node):
 
         self.initialize_joints()
         self.publish_joint_states()
+        self.state = -1
+
+    def state_callback(self, msg):
+        self.state = msg.data
 
     def timer_callback(self):
         angle = -1.309 * np.abs(np.cos(self.get_clock().now().nanoseconds / 1e9))
