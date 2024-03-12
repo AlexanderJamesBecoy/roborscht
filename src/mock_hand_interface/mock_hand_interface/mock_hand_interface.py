@@ -21,6 +21,18 @@ class MockHandInterfaceNode(Node):
         self.broadcaster = TransformBroadcaster(self, self.qos_profile)
         self.get_logger().info('MockHandInterface has been started')
 
+        self.finger_aa_idx = [
+            1, 5, 9, 13, 17
+        ]
+
+        self.finger_fe_idx = [
+            [2, 3, 4],
+            [6, 7, 8],
+            [10, 11, 12],
+            [14, 15, 16],
+            [18, 19, 20],
+        ]
+
         self.thumb_flexion_joint_idx = [
             2, 3, 4
         ]
@@ -33,17 +45,34 @@ class MockHandInterfaceNode(Node):
 
         self.initialize_joints()
         self.publish_joint_states()
-        self.state = -1
+        self.current_state = 0
+
+        self.states = {
+            'OPEN': [-0.25*np.pi, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+            'CLOSE': [
+                0.0, -0.125*np.pi, 
+                0.0, -0.5*np.pi, 
+                0.0, -0.5*np.pi, 
+                0.0, -0.5*np.pi, 
+                0.0, -0.5*np.pi
+            ],
+        }
 
     def state_callback(self, msg):
-        self.state = msg.data
+        self.current_state = msg.data
+        if self.current_state == 1:
+            self.joint_positions = self.transform_joint_state(self.states['CLOSE'])
+        else:
+            self.joint_positions = self.transform_joint_state(self.states['OPEN'])
+        # Print the current state
+        self.get_logger().info(f'Current state: {self.current_state}')
 
     def timer_callback(self):
-        angle = -1.309 * np.abs(np.cos(self.get_clock().now().nanoseconds / 1e9))
-        for i in self.thumb_flexion_joint_idx:
-            self.joint_positions[i] = 0.25 * angle
-        for i in self.finger_flexion_joint_idx:
-            self.joint_positions[i] = angle
+        # angle = -1.309 * np.abs(np.cos(self.get_clock().now().nanoseconds / 1e9))
+        # for i in self.thumb_flexion_joint_idx:
+        #     self.joint_positions[i] = 0.25 * angle
+        # for i in self.finger_flexion_joint_idx:
+        #     self.joint_positions[i] = angle
         self.publish_joint_states()
 
     def initialize_joints(self):
@@ -82,6 +111,15 @@ class MockHandInterfaceNode(Node):
         joint_state.velocity = self.joint_velocities
         joint_state.effort = self.joint_efforts
         self.joint_state_publisher.publish(joint_state)
+
+    def transform_joint_state(self, desired_joint_state):
+        joint_position = [0.0] * len(self.joint_names)
+        for id, (finger_aa_id, finger_fe_idx) in enumerate(zip(self.finger_aa_idx, self.finger_fe_idx)):
+            joint_position[finger_aa_id] = desired_joint_state[id * 2]
+            for finger_fe_id in finger_fe_idx:
+                joint_position[finger_fe_id] = desired_joint_state[id * 2 + 1]
+        self.get_logger().info(f'Joint position: {joint_position}')
+        return joint_position
 
 def main(args=None):
     rclpy.init(args=args)
