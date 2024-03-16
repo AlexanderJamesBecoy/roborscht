@@ -214,7 +214,7 @@
       xyz="0 -1 0" />
     <limit
       lower="0"
-      upper="0.698"
+      upper="0.5236"
       effort="0"
       velocity="0" />
   </joint>
@@ -272,7 +272,7 @@
       xyz="0 -1 0" />
     <limit
       lower="0"
-      upper="0.698"
+      upper="0.5236"
       effort="0"
       velocity="0" />
     <mimic
@@ -334,7 +334,7 @@
       xyz="0 -1 0" />
     <limit
       lower="0"
-      upper="0.698"
+      upper="0.5236"
       effort="0"
       velocity="0" />
     <mimic
@@ -454,7 +454,7 @@
       xyz="0 -1 0" />
     <limit
       lower="0"
-      upper="0.698"
+      upper="0.5236"
       effort="0"
       velocity="0" />
   </joint>
@@ -512,7 +512,7 @@
       xyz="0 -1 0" />
     <limit
       lower="0"
-      upper="0.698"
+      upper="0.5236"
       effort="0"
       velocity="0" />
     <mimic
@@ -574,7 +574,7 @@
       xyz="0 -1 0" />
     <limit
       lower="0"
-      upper="0.698"
+      upper="0.5236"
       effort="0"
       velocity="0" />
     <mimic
@@ -694,7 +694,7 @@
       xyz="0 -1 0" />
     <limit
       lower="0"
-      upper="0.698"
+      upper="0.5236"
       effort="0"
       velocity="0" />
     <mimic
@@ -756,7 +756,7 @@
       xyz="0 -1 0" />
     <limit
       lower="0"
-      upper="0.698"
+      upper="0.5236"
       effort="0"
       velocity="0" />
     <mimic
@@ -818,7 +818,7 @@
       xyz="0 -1 0" />
     <limit
       lower="0"
-      upper="0.698"
+      upper="0.5236"
       effort="0"
       velocity="0" />
     <mimic
@@ -938,7 +938,7 @@
       xyz="0 -1 0" />
     <limit
       lower="0"
-      upper="0.698"
+      upper="0.5236"
       effort="0"
       velocity="0" />
   </joint>
@@ -996,7 +996,7 @@
       xyz="0 -1 0" />
     <limit
       lower="0"
-      upper="0.698"
+      upper="0.5236"
       effort="0"
       velocity="0" />
     <mimic
@@ -1058,7 +1058,7 @@
       xyz="0 -1 0" />
     <limit
       lower="0"
-      upper="0.698"
+      upper="0.5236"
       effort="0"
       velocity="0" />
     <mimic
@@ -1178,7 +1178,7 @@
       xyz="0 -1 0" />
     <limit
       lower="0"
-      upper="0.698"
+      upper="0.5236"
       effort="0"
       velocity="0" />
   </joint>
@@ -1236,7 +1236,7 @@
       xyz="0 -1 0" />
     <limit
       lower="0"
-      upper="0.698"
+      upper="0.5236"
       effort="0"
       velocity="0" />
     <mimic
@@ -1298,7 +1298,7 @@
       xyz="0 -1 0" />
     <limit
       lower="0"
-      upper="0.698"
+      upper="0.5236"
       effort="0"
       velocity="0" />
     <mimic

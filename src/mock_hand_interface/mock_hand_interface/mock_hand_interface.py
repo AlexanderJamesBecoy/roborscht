@@ -13,11 +13,11 @@ class MockHandInterfaceNode(Node):
 
     def __init__(self):
         super().__init__('mock_hand_interface_node')
-        timer_rate = 100 # Hz
+        self.timer_rate = 100 # Hz
         self.qos_profile = QoSProfile(depth=10)
         self.state_subscriber = self.create_subscription(Int32, 'hand/state', self.state_callback, self.qos_profile)
         self.joint_state_publisher = self.create_publisher(JointState, 'hand/joint_states', self.qos_profile)
-        self.timer = self.create_timer(1/timer_rate, self.timer_callback)
+        self.timer = self.create_timer(1/self.timer_rate, self.timer_callback)
         self.broadcaster = TransformBroadcaster(self, self.qos_profile)
         self.get_logger().info('MockHandInterface has been started')
 
@@ -46,34 +46,69 @@ class MockHandInterfaceNode(Node):
         self.initialize_joints()
         self.publish_joint_states()
         self.current_state = 0
+        self.in_progress = False
+        self.max_count = 100
+        self.counter = 0
 
-        self.states = {
-            'OPEN': [-0.25*np.pi, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-            'CLOSE': [
-                0.0, -0.125*np.pi, 
-                0.0, -0.5*np.pi, 
-                0.0, -0.5*np.pi, 
-                0.0, -0.5*np.pi, 
-                0.0, -0.5*np.pi
+        self.states = [
+            [
+                -0.25*np.pi, 0.0, 
+                0.0, 0.0, 
+                0.0, 0.0, 
+                0.0, 0.0,
+                0.0, 0.0,
             ],
-        }
+            [
+                0.0, -0.12*np.pi, 
+                0.0, -0.4*np.pi, 
+                0.0, -0.4*np.pi, 
+                0.0, -0.4*np.pi, 
+                0.0, -0.4*np.pi,
+            ],
+        ]
 
     def state_callback(self, msg):
+        if self.in_progress:
+            self.get_logger().info('The hand is in progress, please wait until it is finished')
+            return
+        
+        if msg.data == self.current_state:
+            self.get_logger().info(f'The hand is already in state {msg.data}')
+            return
+        
+        if msg.data not in range(len(self.states)):
+            self.get_logger().info(f'Invalid state {msg.data}')
+            return
+
         self.current_state = msg.data
-        if self.current_state == 1:
-            self.joint_positions = self.transform_joint_state(self.states['CLOSE'])
-        else:
-            self.joint_positions = self.transform_joint_state(self.states['OPEN'])
+        self.current_joint_positions = []
+        for finger_aa_id, finger_fe_idx in zip(self.finger_aa_idx, self.finger_fe_idx):
+            self.current_joint_positions.append(self.joint_positions[finger_aa_id])
+            self.current_joint_positions.append(self.joint_positions[finger_fe_idx[0]])
+        self.joint_trajectories = [
+            np.linspace(
+                self.current_joint_positions[i], 
+                self.states[self.current_state][i], 
+                self.max_count)
+            for i in range(len(self.states[self.current_state]))
+        ]
+        self.counter = 0
+        self.in_progress = True
+
         # Print the current state
-        self.get_logger().info(f'Current state: {self.current_state}')
+        self.get_logger().info(f'Going to state {msg.data}')
 
     def timer_callback(self):
-        # angle = -1.309 * np.abs(np.cos(self.get_clock().now().nanoseconds / 1e9))
-        # for i in self.thumb_flexion_joint_idx:
-        #     self.joint_positions[i] = 0.25 * angle
-        # for i in self.finger_flexion_joint_idx:
-        #     self.joint_positions[i] = angle
+        if self.in_progress:
+            self.update_joint_state()
         self.publish_joint_states()
+
+    def update_joint_state(self):
+        self.joint_positions = self.transform_joint_state([self.joint_trajectories[i][self.counter] for i in range(len(self.joint_trajectories))])
+        self.counter += 1
+        if self.counter >= self.max_count:
+            self.in_progress = False
+            self.get_logger().info('The hand has reached the desired state')
 
     def initialize_joints(self):
         self.joint_names = [
@@ -118,7 +153,6 @@ class MockHandInterfaceNode(Node):
             joint_position[finger_aa_id] = desired_joint_state[id * 2]
             for finger_fe_id in finger_fe_idx:
                 joint_position[finger_fe_id] = desired_joint_state[id * 2 + 1]
-        self.get_logger().info(f'Joint position: {joint_position}')
         return joint_position
 
 def main(args=None):
