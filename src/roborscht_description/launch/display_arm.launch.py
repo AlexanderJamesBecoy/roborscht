@@ -9,7 +9,7 @@ def generate_launch_description():
     simulation = LaunchConfiguration('simulation', default='true')
     roborscht_description_dir = get_package_share_directory('roborscht_description')
 
-    hand_urdf_file = os.path.join(roborscht_description_dir, 'urdf', 'roborscht_v2.urdf')
+    hand_urdf_file = os.path.join(roborscht_description_dir, 'urdf', 'roborscht_v3.urdf')
     with open(hand_urdf_file, 'r') as infp:
         hand_robot_description = infp.read()
 
@@ -73,7 +73,7 @@ def generate_launch_description():
             executable='static_transform_publisher',
             name='static_transform_publisher',
             output='screen',
-            arguments=['0', '0', '0', '3.141', '0', '0', 'flange', 'base_link']
+            arguments=['0', '0', '0', '-1.571', '0', '0', 'flange', 'base_link']
         ),
 
         # gesture_generator_node,
