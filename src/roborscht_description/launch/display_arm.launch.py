@@ -17,13 +17,6 @@ def generate_launch_description():
     with open(arm_urdf_file, 'r') as infp:
         arm_robot_description = infp.read()
 
-    # gesture_generator_node = Node(
-    #     package='gesture_generator',
-    #     executable='gesture_generator_node',
-    #     name='gesture_generator_node',
-    #     output='screen'
-    # )
-
     return LaunchDescription([
         Node(
             package='robot_state_publisher',
@@ -75,6 +68,4 @@ def generate_launch_description():
             output='screen',
             arguments=['0', '0', '0', '-1.571', '0', '0', 'flange', 'base_link']
         ),
-
-        # gesture_generator_node,
     ])

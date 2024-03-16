@@ -13,10 +13,10 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='gungnir',
-    maintainer_email='gungnir@todo.todo',
-    description='TODO: Package description',
-    license='TODO: License declaration',
+    maintainer='Alexander James Becoy',
+    maintainer_email='alexanderjames.becoy@outlook.com',
+    description='The ROS2 package to mock the hand interface of the humanoid robot hand which controls the abduction/adduction and flexion/extension of each finger.',
+    license='MIT License',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
